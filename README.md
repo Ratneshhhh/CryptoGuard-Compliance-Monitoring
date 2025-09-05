@@ -84,8 +84,8 @@ This end-to-end simulation enables:
 
 ## 📎 Related Links
 
-- [Crypto Risk Tiering Excel (KYC, TXN, Sanctions)](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring/tree/main/excel)
+- [Crypto Risk Tiering Excel (KYC, TXN, Sanctions)](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FRatneshhhh%2FCryptoGuard-Compliance-Monitoring%2Frefs%2Fheads%2Fmain%2FCompliance_Analysis.xlsx&wdOrigin=BROWSELINK)
 - [Power BI Dashboard (Coming Soon)](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring)
-- [Monthly Summary & Case Snapshots](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring/tree/main/docs)
+- [Monthly Summary & Case Snapshots (Coming Soon)](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring/tree/main/docs)
 
 ---
