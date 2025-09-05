@@ -1,95 +1,91 @@
-# 🛡️ CryptoGuard – Compliance Monitoring System
+# CryptoGuard – Compliance Monitoring
 
-**Simulating Post-Onboarding Compliance for Virtual Asset Providers**
+[![](https://img.shields.io/badge/Power%20BI-Analytics-green)](https://powerbi.microsoft.com/) 
+[![](https://img.shields.io/badge/SQL-Staging%20%26%20Rules-blue)](https://en.wikipedia.org/wiki/SQL) 
+[![](https://img.shields.io/badge/Excel-Data%20Prep-yellow)](https://www.microsoft.com/en-us/microsoft-365/excel) 
+[![](https://img.shields.io/badge/AML-Risk%20Detection-red)](https://en.wikipedia.org/wiki/Anti-money_laundering) 
+[![](https://img.shields.io/badge/Crypto-Compliance-purple)](https://en.wikipedia.org/wiki/Cryptocurrency) 
+[![](https://img.shields.io/badge/Project-In%20Progress-lightgrey)]()
 
-[![Power BI](https://img.shields.io/badge/-Power%20BI-black?style=for-the-badge&logo=powerbi&logoColor=yellow)](https://powerbi.microsoft.com/)
-[![SQL](https://img.shields.io/badge/-SQL-blue?style=for-the-badge&logo=postgresql&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
-[![Excel](https://img.shields.io/badge/-Excel-107C41?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/en/microsoft-365/excel)
-
----
-
-### 📌 Project Overview
-
-CryptoGuard simulates a **real-world post-onboarding compliance system** for a crypto exchange, covering:
-
-- Sanctions & PEP screening
-- Rule-based AML alert generation
-- EDD case creation & SLA monitoring
-- Dynamic risk scoring
-- CDD refresh scheduling
-- Regulator-friendly reporting
+A compliance simulation project to replicate **post-onboarding KYC/AML monitoring** in a crypto exchange using synthetic data. The project spans **Excel, SQL, and Power BI**, simulating ongoing screening, transaction monitoring, alert generation, SLA tracking, and EDD triggers.
 
 ---
 
-### 🧩 Tech Stack
+## 🔍 Objective
 
-| Tool       | Usage                                                                 |
-|------------|------------------------------------------------------------------------|
-| **Excel**  | Reference tables (Country Risk, Thresholds), staging data, triage     |
-| **SQL**    | Rules engine, materialized alerts, case creation, CDD/EDD views       |
-| **Power BI** | Dashboard with KPIs, alert tables, SLA metrics, and EDD queues       |
+To simulate the daily compliance activities in a virtual asset service provider (VASP), focusing on:
 
-Star schema was used for data modeling (fact and dimension separation).
-
----
-
-### 🗂️ Dataset Structure (Synthetic Data)
-
-#### 📁 Excel Staging Tables
-- **KYC.csv** – Customer_ID, Risk Score, PEP/Sanction Flags, Onboarding Date
-- **Transactions.csv** – Txn_ID, Sender/Receiver, Wallets, Amount, Timestamp
-- **Sanctions.csv** – Sanctioned Wallet Addresses
-- **Reference Tables** – Country Risk, Currency Rates, Thresholds
-
-#### 🛠️ Key Triage Logic
-- High-Value, Cross-Border, PEP/Adverse party detection
-- Risk bucket scoring (Low / Medium / High)
-- Derived fields for alert rules
+- Ongoing PEP and sanctions screening after onboarding
+- Risk-based monitoring of transactions via SQL rules
+- Case management with alert lifecycle and SLA deadlines
+- Scheduling CDD reviews and triggering EDD cases
 
 ---
 
-### 📌 AML Rule Logic in SQL
+## 🗂️ Project Structure
 
-- **Sanctions_Hit**: Direct match
-- **PEP_HV_CrossBorder**: PEP involved + high-value or cross-border
-- **Structuring/Smurfing**: Multiple similar or funnel transactions
-- **Velocity_Burst**: Rapid fire patterns
-- **High-Risk Corridor**: Country pair flow ≥ threshold
-- **SLA Calculation**: Severity-based deadline assignment
-
----
-
-### 📊 Power BI Dashboard
-
-- 📌 **Executive Summary**: Totals, open alerts, SLA breaches, flagged %
-- 🔍 **Analyst Workbench**: Drill-through to alert + transaction context
-- 🌍 **Corridors & Geo Flow**: Heatmaps & matrices for high-risk paths
-- 🧾 **EDD & Case Tracking**: Overdue queue, decisions, top case reasons
+- **Excel Staging Workbook**: Synthetic datasets (KYC, Transactions, Sanctions, Country Risk, Currency Rates, Thresholds) + triage logic (risk scoring, flags, QC).
+- **SQL Layer**: 
+  - Staging tables: `dim_customer`, `fact_transaction`, `dim_sanctions`, `ref_thresholds`, `ref_country_risk`
+  - Rules engine using SQL views for alert scenarios (sanction hit, PEP, high-value, smurfing, structuring, etc.)
+  - Materialized `alerts`, `cases`, `cdd_refresh`, and `edd_triggers`
+- **Power BI Report**: 4-page interactive dashboard covering alerts, SLA, risk profiles, corridors, and case queues.
+- **Documentation**: Monthly summary sample and case snapshots for reporting use.
 
 ---
 
-### 📝 Deliverables
+## 🛠️ Tools & Technologies
 
-- `Excel/` – Cleaned staging data + triage logic
-- `SQL/` – All rule views, alerts, cases, risk scoring
-- `PowerBI/` – Dashboard pages (screenshots or .pbix)
-- `Reports/` – Sample monthly summary PDF, case snapshots
-
----
-
-### 📅 Next Steps (In Progress)
-- ✅ Excel triage
-- ⏳ SQL scripting
-- ⏳ Power BI dashboard build
-- ⏳ Documentation upload
+- **Excel**: Data creation, enrichment, triage columns, and dynamic scoring logic
+- **SQL**: Rules engine for AML alerts, staging pipelines, SLA & EDD logic
+- **Power BI**: Dashboards for compliance overview, case resolution, and alert monitoring
+- **Domain Frameworks**: FATF guidelines, sanctions monitoring, proximity tracing, CDD/EDD best practices
 
 ---
 
-### 📌 Author
+## 📊 Live Power BI Dashboard
 
-📇 **Ratnesh Yadav**  
-🔗 [ratneshyadav.net](https://ratneshyadav.net) | [LinkedIn](https://www.linkedin.com/in/ratneshhhh)
+🚧 *In Progress*  
+Will include:
+
+- Executive Summary with KPIs
+- Open/closed case tracking
+- EDD queue and SLA breaches
+- Corridor maps and alert distributions
+- Drill-throughs for alert-level transaction history
 
 ---
 
-> ⚠️ Note: This project uses **entirely synthetic data** for simulation purposes and is not tied to any real customer or organization.
+## 🚨 Key Features
+
+- **SQL-Based AML Rule Engine**:
+  - `Sanctions Hit`, `Sanctions Proximity`, `PEP High Value`, `Cross-Border`
+  - `Structuring`, `Smurfing`, `Velocity Burst`, `High-Risk Corridors`
+- **Dynamic Risk Score Calculation** (Excel):
+  - Combines PEP/Sanction/Geo risk for triaging customers
+- **Case & Alert Management**:
+  - SLA-based lifecycle monitoring for each alert
+  - Case consolidation for multi-alert customers
+- **EDD Triggering Engine**:
+  - Auto-identification of customers needing enhanced due diligence
+
+---
+
+## ✅ Outcome
+
+This end-to-end simulation enables:
+
+- Realistic compliance analysis workflow tailored for the crypto sector
+- Visibility into evolving customer risk with data-driven refresh schedules
+- Proactive AML detection with minimal false positives using dynamic scoring
+- Dashboard-driven investigations with full alert/case context and SLA tracking
+
+---
+
+## 📎 Related Links
+
+- [Crypto Risk Tiering Excel (KYC, TXN, Sanctions)](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring/tree/main/excel)
+- [Power BI Dashboard (Coming Soon)](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring)
+- [Monthly Summary & Case Snapshots](https://github.com/Ratneshhhh/CryptoGuard-Compliance-Monitoring/tree/main/docs)
+
+---
